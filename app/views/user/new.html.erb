@@ -1,0 +1,38 @@
+
+ 
+<h1>New User</h1>
+<%= form_with model: @user do |form| %>
+ 
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@user.errors.count, "error") %> prohibited
+          this user from being saved:
+        </h2>
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+   
+    <p>
+      <b><%= form.label :name %><br></b>
+      <%= form.text_field :name %>
+    </p>
+   
+    <p>
+      <b><%= form.label :email %><br></b>
+      <%= form.email_filed :email %>
+    </p>
+
+    <p>
+    <%= form.file_field :image %>
+    </p>
+
+    <p>
+      <%= form.submit %>
+    </p>
+   
+<% end %>

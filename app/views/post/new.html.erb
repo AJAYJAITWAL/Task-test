@@ -1,0 +1,34 @@
+
+ 
+<h1>New Post</h1>
+<%= form_with model: @post do |form| %>
+ 
+    <% if @post.errors.any? %>
+      <div id="error_explanation">
+        <h2>
+          <%= pluralize(@post.errors.count, "error") %> prohibited
+          this post from being saved:
+        </h2>
+        <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+   
+    <p>
+      <b><%= form.label :title %><br></b>
+      <%= form.text_field :title %>
+    </p>
+   
+    <p>
+      <b><%= form.label :text %><br></b>
+      <%= form.text_area :text %>
+    </p>
+
+    <p>
+      <%= form.submit %>
+    </p>
+   
+<% end %>

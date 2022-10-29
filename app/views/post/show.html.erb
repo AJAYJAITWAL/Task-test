@@ -1,0 +1,21 @@
+<%= @post.title %>
+<%= @post.text %>
+
+
+<h1>Comments</h1>
+<%= form_with model: @post.comments do |form| %>
+
+    <p>
+      <b><%= form.label :description %><br></b>
+      <%= form.text_field :description %>
+    </p>
+
+    <p>
+      <%= form.submit %>
+    </p>
+   
+<% end %>
+
+<%= @post.comments.each do |comment| %>
+    <%= comment.description %>
+<%end%>
