@@ -1,0 +1,15 @@
+<%= link_to "Create Post", new_post_path %>
+<br>
+<%= link_to "All post", posts_path %>
+
+<div style="margin-top: 80px;">
+    <h2>All Users</h2>
+    <% @users.each do |user| %>
+        Name: <%= user.name %><br>
+        Email: <%= user.email %><br>
+        <% if user.image.present? %>
+            Profile: <%= image_tag user.image.variant(resize_to_limit: [150, nil]) %>
+        <%end%>
+        <hr/>
+    <% end %>
+</div>

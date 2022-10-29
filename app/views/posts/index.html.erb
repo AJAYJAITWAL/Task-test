@@ -1,0 +1,10 @@
+<% @posts.each do |post| %>
+    Title: <%= post.title %><br>
+    Text: <%= post.text %><br>
+    <%= link_to "show", post_path(post) %>
+
+    <hr/>
+<% end %>
+
+<br>
+<%= link_to "All User", users_path %>

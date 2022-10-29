@@ -1,10 +1,10 @@
-class PostController < ApplicationController
+class PostsController < ApplicationController
   def index
     @posts = Post.all
   end
 
   def show
-    @psot = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -12,12 +12,13 @@ class PostController < ApplicationController
   end
 
   def create
-    @article = Post.new(post_params)
+    byebug
+    @post = Post.new(post_params)
 
-    if @article.save
-      redirect_to @article
+    if @post.save
+      redirect_to posts_path
     else
-      redirect_to 'new'
+      render :new
     end
   end
 
